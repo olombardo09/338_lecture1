@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A visual travel diary of a trip through Ireland, featuring Dublin, Howth, Galway, and Belfast.">
+    <title>Irish Wanderlust | Travel Postcards</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header>
+        <h1>Irish Wanderlust</h1>
+        <p>A Bulletin of Memories from the Emerald Isle</p>
+        <nav aria-label="Location navigation">
+            <ul>
+                <li><a href="#dublin">Dublin</a></li>
+                <li><a href="#howth">Howth</a></li>
+                <li><a href="#galway">Galway</a></li>
+                <li><a href="#belfast">Belfast</a></li>
+                <li><a href="#causeway">Causeway</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- DUBLIN SECTION -->
+        <section id="dublin" aria-labelledby="dublin-heading">
+            <h2 id="dublin-heading">Dublin</h2>
+            <div class="board">
+                <!-- Postcard 1 -->
+                <div class="postcard" tabindex="0" role="button" aria-expanded="false">
+                    <div class="postcard-inner">
+                        <div class="front">
+                            <img src="https://images.unsplash.com/photo-1590059353934-802f0689b7b9?auto=format&fit=crop&w=600&q=80" alt="St Stephens Green Park gate with flowers">
+                        </div>
+                        <div class="back">
+                            <h3>St Stephens Green</h3>
+                            <p>A lush Victorian park in the heart of Dublin. Perfect for a morning stroll among the swans.</p>
+                            <span class="location-tag">Dublin, IE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Postcard 2 -->
+                <div class="postcard" tabindex="0" role="button" aria-expanded="false">
+                    <div class="postcard-inner">
+                        <div class="front">
+                            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80" alt="Interior of a traditional Irish Pub with dark wood">
+                        </div>
+                        <div class="back">
+                            <h3>The Lord Edward Pub</h3>
+                            <p>Classic vibes and incredible history right across from the Cathedral.</p>
+                            <span class="location-tag">Dublin, IE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Postcard 3 -->
+                <div class="postcard" tabindex="0" role="button" aria-expanded="false">
+                    <div class="postcard-inner">
+                        <div class="front">
+                            <img src="https://images.unsplash.com/photo-1582236372132-75f8f5379b18?auto=format&fit=crop&w=600&q=80" alt="A wild deer in Phoenix Park">
+                        </div>
+                        <div class="back">
+                            <h3>Phoenix Park</h3>
+                            <p>Home to wild deer and the President's house. Massive and beautiful.</p>
+                            <span class="location-tag">Dublin, IE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Postcard 4 -->
+                <div class="postcard" tabindex="0" role="button" aria-expanded="false">
+                    <div class="postcard-inner">
+                        <div class="front">
+                            <img src="https://images.unsplash.com/photo-1590509837014-99bc4517172a?auto=format&fit=crop&w=600&q=80" alt="Exterior of the Brazen Head Pub">
+                        </div>
+                        <div class="back">
+                            <h3>The Brazen Head</h3>
+                            <p>Oldest pub in Ireland (1198). The courtyard live music is a must-hear.</p>
+                            <span class="location-tag">Dublin, IE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other 4 Dublin cards -->
+            </div>
+        </section>
+
+        <!-- HOWTH SECTION -->
+        <section id="howth" aria-labelledby="howth-heading">
+            <h2 id="howth-heading">Howth</h2>
+            <div class="board">
+                <div class="postcard" tabindex="0">
+                    <div class="postcard-inner">
+                        <div class="front">
+                            <img src="https://images.unsplash.com/photo-1548810230-032906b3a246?auto=format&fit=crop&w=600&q=80" alt="Howth Lighthouse overlooking the sea">
+                        </div>
+                        <div class="back">
+                            <h3>Howth Cliffs</h3>
+                            <p>A stunning coastal walk just north of the city center.</p>
+                            <span class="location-tag">Howth, IE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Irish Journey. All photos captured on site.</p>
+    </footer>
+
+    <script>
+        // Accessibility script to allow 'Enter' key to flip postcards for keyboard users
+        document.querySelectorAll('.postcard').forEach(card => {
+            card.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    this.classList.toggle('flipped');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

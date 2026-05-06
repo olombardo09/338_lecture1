@@ -1,0 +1,209 @@
+/* COLOR PALETTE
+Evergreen: #1B3022
+Dark Slate Grey: #395756
+Ash Grey: #B9BAA3
+Parchment: #F2E9E4
+Soft Periwinkle: #8B85C1
+*/
+
+:root {
+    --evergreen: #1B3022;
+    --dark-slate: #395756;
+    --ash-grey: #B9BAA3;
+    --parchment: #F2E9E4;
+    --periwinkle: #8B85C1;
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--parchment);
+    /* Subtle cork texture */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(185, 186, 163, 0.2) 1px, transparent 1px);
+    background-size: 25px 25px;
+    font-family: 'Georgia', serif;
+    color: var(--evergreen);
+    line-height: 1.6;
+}
+
+/* Accessibility: Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--evergreen);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+.skip-link:focus { top: 0; }
+
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--evergreen);
+    color: var(--parchment);
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+nav a {
+    color: var(--ash-grey);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a:focus {
+    color: var(--white);
+    border-bottom: 2px solid var(--periwinkle);
+}
+
+section {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+section h2 {
+    color: var(--dark-slate);
+    border-left: 10px solid var(--periwinkle);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+/* THE BOARD (FLEXBOX) */
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* THE POSTCARD CONTAINER */
+.postcard {
+    width: 320px;
+    height: 240px;
+    perspective: 1000px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Accessibility Focus Ring */
+.postcard:focus-visible .postcard-inner {
+    outline: 3px solid var(--periwinkle);
+    outline-offset: 10px;
+}
+
+.postcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Flip trigger on hover and JS class */
+.postcard:hover .postcard-inner,
+.postcard.flipped .postcard-inner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 12px solid var(--white);
+    background-color: var(--white);
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.back {
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: 
+        repeating-linear-gradient(transparent, transparent 24px, #e5e5e5 25px);
+}
+
+.back h3 {
+    font-family: 'Brush Script MT', cursive; /* Simulated handwriting */
+    color: var(--dark-slate);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.back p {
+    font-size: 0.95rem;
+    color: var(--evergreen);
+}
+
+.location-tag {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--ash-grey);
+    border: 1px solid var(--ash-grey);
+    padding: 2px 5px;
+}
+
+/* Random Rotation for bulletin board effect */
+.postcard:nth-child(3n) { transform: rotate(3deg); }
+.postcard:nth-child(3n+1) { transform: rotate(-2deg); }
+.postcard:nth-child(3n+2) { transform: rotate(1.5deg); }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    .postcard {
+        width: 100%; /* Full width on mobile */
+        max-width: 320px;
+    }
+    
+    header {
+        padding: 2rem 1rem;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--dark-slate);
+    color: var(--parchment);
+}
